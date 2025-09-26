@@ -34,7 +34,7 @@ var loadfont = function() {
 
 module.exports = {
   pkg: {
-    extend: {name: "base", version: "0.0.1"},
+    extend: {name: "@makechart/base"},
     dependencies: [
       {url: "https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"},
       {url: "https://cdn.jsdelivr.net/npm/d3-cloud@1/build/d3.layout.cloud.js"},
