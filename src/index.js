@@ -81,17 +81,17 @@ module.exports = {
         config: {
           font: {
             family: {name: "font", type: "font"},
-            minsize: {name: "min size", type: "number", min: 8, max: 50, default: 12, step: 1},
-            maxsize: {name: "max size", type: "number", min: 20, max: 200, default: 60, step: 1}
+            minsize: {name: "min size", type: "number", min: 8, max: 50, default: 12, step: 1, desc: {en: "font size of the word with the smallest value ( px )", "zh-TW": "數值最小的詞的字級 ( px )"}},
+            maxsize: {name: "max size", type: "number", min: 20, max: 200, default: 60, step: 1, desc: {en: "font size of the word with the largest value ( px )", "zh-TW": "數值最大的詞的字級 ( px )"}}
           },
-          sizeScale: {name: "scale", type: "choice", values: ["sqrt", "linear"], default: "sqrt"},
-          padding: {name: "padding", type: "number", min: 0, max: 10, default: 2, step: 0.5},
-          spiral: {name: "shape", type: "choice", values: ["archimedean", "rectangular"], default: "archimedean"},
-          rotationMode: {name: "rotation mode", type: "choice", values: ["none", "fixed", "random"], default: "random"},
-          maxRotation: {name: "max rotation", type: "number", min: 0, max: 180, default: 90, step: 15},
-          rotationStep: {name: "rotation step", type: "number", min: 15, max: 90, default: 90, step: 15},
-          randomColor: {name: "random color without category", type: "choice", values: ["true", "false"], default: "false"},
-          palette: {name: "palette", type: "palette", default: {colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]}}
+          sizeScale: {name: "scale", type: "choice", values: ["sqrt", "linear"], default: "sqrt", desc: {en: "how values map to font size between min and max size: sqrt follows the square root so large values grow less, linear follows the value directly", "zh-TW": "數值怎麼對應到最小與最大字級之間：sqrt 依平方根，數值大的放大得比較少；linear 直接依數值"}},
+          padding: {name: "padding", type: "number", min: 0, max: 10, default: 2, step: 0.5, desc: {en: "space kept around each word so words don't touch ( px )", "zh-TW": "每個詞周圍保留的空隙，詞與詞才不會貼在一起 ( px )"}},
+          spiral: {name: "shape", type: "choice", values: ["archimedean", "rectangular"], default: "archimedean", desc: {en: "path followed outward from the center when looking for room for each word: archimedean gives a round cloud, rectangular a boxy one", "zh-TW": "替每個詞找位置時從中心往外繞的路徑：archimedean 排成圓形，rectangular 排成方形"}},
+          rotationMode: {name: "rotation mode", type: "choice", values: ["none", "fixed", "random"], default: "random", desc: {en: "none keeps every word level; fixed turns some words by exactly the rotation step; random turns words either way by a random multiple of the rotation step, up to the max rotation", "zh-TW": "none 所有詞都水平；fixed 部分詞轉動剛好一個旋轉間隔；random 隨機往兩個方向轉旋轉間隔的整數倍，最多到最大旋轉角度"}},
+          maxRotation: {name: "max rotation", type: "number", min: 0, max: 180, default: 90, step: 15, desc: {en: "largest angle a word can turn in random mode ( degrees )", "zh-TW": "random 模式下詞最多轉幾度 ( 度 )"}},
+          rotationStep: {name: "rotation step", type: "number", min: 15, max: 90, default: 90, step: 15, desc: {en: "words turn by multiples of this angle; in fixed mode it is the angle itself ( degrees )", "zh-TW": "詞轉動的角度是這個值的整數倍；fixed 模式下就是轉動的角度 ( 度 )"}},
+          randomColor: {name: "random color without category", type: "choice", values: ["true", "false"], default: "false", desc: {en: "for words without a category: true gives each a random color from the palette, false uses the first color", "zh-TW": "沒有分類的詞：true 從配色中隨機取色，false 一律用第一個顏色"}},
+          palette: {name: "palette", type: "palette", default: {colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]}, desc: {en: "colors given to the categories in order of appearance", "zh-TW": "依分類出現的順序分配的顏色"}}
         },
         dimension: {
           text: {},
